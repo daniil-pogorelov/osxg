@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Block any accidental config or source file exposure
+Disallow: /worker.js
+Disallow: /worker.txt
+
+# Sitemap location
+Sitemap: https://osxg.tech/sitemap.xml
