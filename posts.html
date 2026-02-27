@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ═══ Primary SEO ═══ -->
+    <title>Mac Gaming Tutorials & Forum Posts — GTA V on Mac | OSXG+ Discord Community</title>
+    <meta
+      name="description"
+      content="Browse community tutorials and forum posts on playing GTA V, CrossOver, and Windows games on macOS. Setup guides, Apple Silicon tips, and troubleshooting from the OSXG+ Discord."
+    />
+    <meta
+      name="keywords"
+      content="mac gaming tutorials, GTA V on mac guide, crossover mac tutorial, whisky mac gaming, apple silicon GTA V, mac gaming forum, gta online mac setup, crossover bottle template, mac gaming community posts, osxg tutorials, gta v crossover guide, macos gaming tips"
+    />
+    <meta
+      name="robots"
+      content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+    />
+    <link rel="canonical" href="https://osxg.tech/posts.html" />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+
+    <!-- ═══ Favicon ═══ -->
+    <link rel="icon" href="asstes/images/favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="asstes/images/favicon.png" />
+
+    <!-- ═══ Open Graph ═══ -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://osxg.tech/posts.html" />
+    <meta
+      property="og:title"
+      content="Mac Gaming Tutorials & Forum Posts — OSXG+ Discord"
+    />
+    <meta
+      property="og:description"
+      content="Community-written guides and forum threads on GTA V, CrossOver, Whisky, and Mac gaming from the OSXG+ Discord server."
+    />
+    <meta
+      property="og:image"
+      content="https://osxg.tech/asstes/images/osxg_banner.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="OSXG+ Mac Gaming Discord — Tutorials and Forum Posts"
+    />
+    <meta property="og:site_name" content="OSXG+" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- ═══ Twitter / X Card ═══ -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Mac Gaming Tutorials & Forum Posts — OSXG+"
+    />
+    <meta
+      name="twitter:description"
+      content="Browse GTA V on Mac setup guides, CrossOver tutorials, and community posts from the OSXG+ Mac gaming Discord."
+    />
+    <meta
+      name="twitter:image"
+      content="https://osxg.tech/asstes/images/osxg_banner.png"
+    />
+    <meta name="twitter:image:alt" content="OSXG+ Mac Gaming Discord Banner" />
+
+    <!-- ═══ Discord embed accent color ═══ -->
+    <meta name="theme-color" content="#9333ea" />
+
+    <!-- ═══ Structured Data ═══ -->
+    <!-- BreadcrumbList schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "OSXG+ Home",
+          "item": "https://osxg.tech/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Forum Posts & Tutorials",
+          "item": "https://osxg.tech/posts.html"
+        }
+      ]
+    }
+    </script>
+
+    <!-- CollectionPage schema — post list filled dynamically by posts-script.js -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Mac Gaming Tutorials & Forum Posts — OSXG+",
+      "description": "Community-written guides and forum threads on GTA V, CrossOver, Whisky, and Mac gaming from the OSXG+ Discord server.",
+      "url": "https://osxg.tech/posts.html",
+      "publisher": {
+        "@type": "Organization",
+        "name": "OSXG+",
+        "url": "https://osxg.tech",
+        "logo": "https://osxg.tech/asstes/images/osxg+_text_logo.png"
+      }
+    }
+    </script>
+
+    <!-- ═══ Performance ═══ -->
+    <link rel="dns-prefetch" href="//discord.com" />
+    <link rel="dns-prefetch" href="//osxg.1221647.workers.dev" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* ── Posts page-specific styles ── */
+
+      /* Breadcrumb */
+      .breadcrumb {
+        padding: 6rem 0 0;
+        text-align: center;
+      }
+      .breadcrumb nav {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.85rem;
+        color: rgba(255,255,255,0.5);
+      }
+      .breadcrumb nav a {
+        color: rgba(255,255,255,0.6);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .breadcrumb nav a:hover { color: #a855f7; }
+      .breadcrumb nav .sep { color: rgba(255,255,255,0.25); }
+
+      /* Posts section */
+      .posts-section {
+        padding: 2rem 0 6rem;
+      }
+
+      /* Posts grid */
+      #posts-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 1.5rem;
+        margin-top: 2.5rem;
+      }
+
+      /* Post card — article element for semantic SEO */
+      .post-card {
+        background: rgba(255,255,255,0.03);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 16px;
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+        position: relative;
+        overflow: hidden;
+      }
+      .post-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at top left, rgba(147,51,234,0.06) 0%, transparent 70%);
+        pointer-events: none;
+      }
+      .post-card:hover {
+        border-color: rgba(168,85,247,0.35);
+        transform: translateY(-3px);
+        box-shadow: 0 12px 40px rgba(147,51,234,0.12);
+      }
+
+      /* Post tags */
+      .post-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+      }
+      .post-tag {
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        padding: 0.2rem 0.6rem;
+        border-radius: 999px;
+        background: rgba(168,85,247,0.15);
+        color: #c084fc;
+        border: 1px solid rgba(168,85,247,0.2);
+      }
+
+      /* Post title */
+      .post-card h2 {
+        font-size: 1.05rem;
+        font-weight: 700;
+        line-height: 1.4;
+        color: #fff;
+        margin: 0;
+      }
+
+      /* Post excerpt — shown when SHOW_POST_CONTENT=true on worker */
+      .post-excerpt-wrap {
+        position: relative;
+        overflow: hidden;
+        max-height: 4.8em; /* ~3 lines */
+      }
+      .post-excerpt {
+        font-size: 0.875rem;
+        color: rgba(255,255,255,0.55);
+        line-height: 1.6;
+        margin: 0;
+      }
+      /* Fade-out gradient masks the bottom of the excerpt */
+      .post-excerpt-wrap::after {
+        content: "";
+        position: absolute;
+        bottom: 0; left: 0; right: 0;
+        height: 2em;
+        background: linear-gradient(to bottom, transparent, rgba(15,10,30,0.92));
+        pointer-events: none;
+      }
+
+      /* Locked placeholder — shown when SHOW_POST_CONTENT=false (default) */
+      .post-locked {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.6rem 0.9rem;
+        border-radius: 8px;
+        background: rgba(168,85,247,0.06);
+        border: 1px dashed rgba(168,85,247,0.2);
+        font-size: 0.8rem;
+        color: rgba(255,255,255,0.35);
+        font-style: italic;
+      }
+      .post-locked svg {
+        width: 14px; height: 14px;
+        flex-shrink: 0;
+        color: rgba(168,85,247,0.5);
+      }
+
+      /* Post meta */
+      .post-meta {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        font-size: 0.78rem;
+        color: rgba(255,255,255,0.4);
+        margin-top: auto;
+        padding-top: 0.75rem;
+        border-top: 1px solid rgba(255,255,255,0.06);
+        flex-wrap: wrap;
+      }
+      .post-meta span {
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+      }
+      .post-meta svg {
+        width: 13px;
+        height: 13px;
+        opacity: 0.6;
+        flex-shrink: 0;
+      }
+
+      /* CTA in card */
+      .post-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        margin-top: 0.25rem;
+        padding: 0.55rem 1rem;
+        background: linear-gradient(135deg, rgba(147,51,234,0.25), rgba(79,70,229,0.25));
+        border: 1px solid rgba(168,85,247,0.3);
+        border-radius: 8px;
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: #c084fc;
+        text-decoration: none;
+        transition: background 0.2s, border-color 0.2s, color 0.2s;
+        align-self: flex-start;
+      }
+      .post-cta:hover {
+        background: linear-gradient(135deg, rgba(147,51,234,0.45), rgba(79,70,229,0.45));
+        border-color: rgba(168,85,247,0.6);
+        color: #fff;
+      }
+      .post-cta svg { flex-shrink: 0; }
+
+      /* Skeleton loader */
+      .skeleton-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 1.5rem;
+        margin-top: 2.5rem;
+      }
+      .skeleton-card {
+        background: rgba(255,255,255,0.03);
+        border: 1px solid rgba(255,255,255,0.07);
+        border-radius: 16px;
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+      .skeleton-line {
+        height: 12px;
+        border-radius: 6px;
+        background: linear-gradient(90deg, rgba(255,255,255,0.05) 25%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.05) 75%);
+        background-size: 200% 100%;
+        animation: shimmer 1.4s infinite;
+      }
+      .skeleton-line.w-50 { width: 50%; }
+      .skeleton-line.w-70 { width: 70%; }
+      .skeleton-line.w-30 { width: 30%; }
+      .skeleton-line.h-20 { height: 20px; }
+      @keyframes shimmer {
+        0%   { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
+      }
+
+      /* Empty / error state */
+      .posts-empty {
+        text-align: center;
+        padding: 4rem 2rem;
+        color: rgba(255,255,255,0.4);
+        grid-column: 1 / -1;
+      }
+      .posts-empty .empty-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        display: block;
+      }
+      .posts-empty p { font-size: 1rem; }
+
+      /* Filters / count bar */
+      .posts-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+      .posts-count {
+        font-size: 0.85rem;
+        color: rgba(255,255,255,0.4);
+      }
+      .posts-count strong {
+        color: rgba(255,255,255,0.75);
+      }
+
+      /* Discord CTA banner at bottom */
+      .posts-cta-banner {
+        margin-top: 4rem;
+        background: linear-gradient(135deg, rgba(147,51,234,0.12), rgba(79,70,229,0.12));
+        border: 1px solid rgba(168,85,247,0.2);
+        border-radius: 20px;
+        padding: 2.5rem;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.25rem;
+      }
+      .posts-cta-banner h2 {
+        font-size: 1.6rem;
+        font-weight: 800;
+        color: #fff;
+        margin: 0;
+      }
+      .posts-cta-banner p {
+        font-size: 0.95rem;
+        color: rgba(255,255,255,0.6);
+        max-width: 520px;
+        margin: 0;
+        line-height: 1.6;
+      }
+
+      @media (max-width: 600px) {
+        #posts-grid, .skeleton-grid {
+          grid-template-columns: 1fr;
+        }
+        .posts-cta-banner { padding: 1.75rem 1.25rem; }
+        .posts-cta-banner h2 { font-size: 1.3rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Particle Canvas Background -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-inner">
+        <a href="/" class="nav-logo">
+          <img
+            src="asstes/images/osxg+_text_logo.png"
+            alt="OSXG+"
+            class="nav-logo-img"
+          />
+        </a>
+        <ul class="nav-links">
+          <li><a href="/#features">Features</a></li>
+          <li><a href="/#tutorial">Tutorial</a></li>
+          <li><a href="/#games">Games</a></li>
+          <li><a href="/posts.html" class="active">Posts</a></li>
+          <li><a href="/#join" class="nav-cta">Join Server</a></li>
+        </ul>
+        <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- ===== BREADCRUMB ===== -->
+    <div class="breadcrumb">
+      <nav aria-label="Breadcrumb">
+        <a href="/">OSXG+</a>
+        <span class="sep">›</span>
+        <span>Forum Posts</span>
+      </nav>
+    </div>
+
+    <!-- ===== POSTS SECTION ===== -->
+    <main class="section posts-section">
+      <div class="container">
+
+        <!-- Section header -->
+        <div class="section-header fade-in">
+          <span class="section-tag">Discord Community</span>
+          <h1 class="section-title">Tutorials &amp; Forum Posts</h1>
+          <p class="section-desc">
+            Community-written guides and discussions from the OSXG+ Discord
+            #tutorials forum — covering GTA V on Mac, CrossOver setups, Apple
+            Silicon tips, and more. <strong>Join the server to read the full guides.</strong>
+          </p>
+        </div>
+
+        <!-- Count bar + skeleton/grid -->
+        <div class="posts-bar">
+          <p class="posts-count" id="posts-count" aria-live="polite"></p>
+        </div>
+
+        <!-- Skeleton shown while loading -->
+        <div class="skeleton-grid" id="posts-skeleton" aria-hidden="true">
+          <!-- 6 skeleton cards -->
+          <div class="skeleton-card"><div class="skeleton-line w-30"></div><div class="skeleton-line h-20 w-70"></div><div class="skeleton-line w-50"></div><div class="skeleton-line w-30"></div></div>
+          <div class="skeleton-card"><div class="skeleton-line w-50"></div><div class="skeleton-line h-20"></div><div class="skeleton-line w-70"></div><div class="skeleton-line w-30"></div></div>
+          <div class="skeleton-card"><div class="skeleton-line w-30"></div><div class="skeleton-line h-20 w-50"></div><div class="skeleton-line w-70"></div><div class="skeleton-line w-50"></div></div>
+          <div class="skeleton-card"><div class="skeleton-line w-70"></div><div class="skeleton-line h-20 w-30"></div><div class="skeleton-line w-50"></div><div class="skeleton-line w-30"></div></div>
+          <div class="skeleton-card"><div class="skeleton-line w-50"></div><div class="skeleton-line h-20 w-70"></div><div class="skeleton-line w-30"></div><div class="skeleton-line w-50"></div></div>
+          <div class="skeleton-card"><div class="skeleton-line w-30"></div><div class="skeleton-line h-20"></div><div class="skeleton-line w-70"></div><div class="skeleton-line w-30"></div></div>
+        </div>
+
+        <!-- Actual posts grid (filled by posts-script.js) -->
+        <div id="posts-grid" role="list" aria-label="Forum posts" style="display:none;"></div>
+
+        <!-- Discord CTA banner -->
+        <div class="posts-cta-banner fade-in">
+          <div style="font-size:2rem;">💬</div>
+          <h2>Want to read the full guides?</h2>
+          <p>
+            The complete tutorials — with screenshots, config files, video
+            walkthroughs, and live discussion — live inside the OSXG+ Discord
+            server. It's free to join.
+          </p>
+          <a
+            href="https://discord.gg/CSMCXcVEPk"
+            class="btn btn-primary"
+            id="posts-join-btn"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057.1 18.08.11 18.1.131 18.115a19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028 14.09 14.09 0 001.226-1.994.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03z"/>
+            </svg>
+            Join OSXG+ Discord
+          </a>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-inner">
+          <div class="footer-brand">
+            <img
+              src="asstes/images/osxg+_text_logo.png"
+              alt="OSXG+"
+              class="footer-logo"
+            />
+            <p>No Ports — No Limits.</p>
+          </div>
+          <div class="footer-links">
+            <a href="/#features">Features</a>
+            <a href="/#tutorial">Tutorial</a>
+            <a href="/#games">Games</a>
+            <a href="/posts.html">Posts</a>
+            <a href="/#join">Join</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            OSXG+ is a fan community. Not affiliated with Rockstar Games,
+            CodeWeavers, or Apple Inc.
+          </p>
+          <p>&copy; 2025-<span id="currentYear"></span> OSXG+ Community</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>document.getElementById('currentYear').textContent = new Date().getFullYear();</script>
+    <script src="posts-script.js"></script>
+  </body>
+</html>
